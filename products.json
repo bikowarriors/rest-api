@@ -1,0 +1,13 @@
+{
+    "02c313d6-af19-4ecf-ac66-d5e6ffa4c0cd":{
+        "id":"02c313d6-af19-4ecf-ac66-d5e6ffa4c0cd",
+        "name":"Toothbrush",
+        "price":100,"quantity":50,
+        "image":"pxfuel.jpg"},
+    
+        "bda719fa-5c9f-410c-aab3-d3e8b38d9875":{
+        "id":"bda719fa-5c9f-410c-aab3-d3e8b38d9875",
+        "name":"Toothpaste",
+        "price":50,
+        "quantity":150,
+        "image":"pxfuel (2).jpg"}}
