@@ -60,18 +60,56 @@ export const create=async (userData: UnitUser): Promise<UnitUser | null> =>{
     return user;    
 };
 
-export const findByEmail = async (user_email: string): Promise<null | UnitUser> =>{
-    
-    const allUsers=await findAll();
+export const findByEmail =async(user_email:string): Promise <null|UnitUser> =>{
 
-    const getUser=allUsers.find(result => user_email === result.email);
+    const allUsers=await findAll();
+    const getUser=allUsers.find(results=>results.email.includes(user_email));
 
     if(!getUser){
         return null;
     }
 
     return getUser;
-};
+}
+
+export const findByEmail2 = async (user_email: string): Promise<UnitUser[] | null> =>{
+    
+    const allUsers=await findAll();
+
+    const getUser=allUsers.filter(user => user.email.includes(user_email));
+
+    if(getUser.length ===0){
+        return null;
+    }
+
+    return getUser;
+}
+
+export const findByUserName = async (username: string): Promise<UnitUser[] | null> => {
+
+    const allUsers = await findAll();
+
+    const getUser = allUsers.filter(user => user.username.includes(username));
+
+    if(getUser.length===0){
+        return null;
+    }
+
+    return getUser;
+}
+
+export const findByEmailAndUsername = async (user_email: string, username: string): Promise<null | UnitUser> => {
+
+    const allUsers = await findAll();
+
+    const getUser = allUsers.find(result => result.email.includes(user_email) && result.username.includes(username));
+
+    if(!getUser){
+        return null;
+    }
+
+    return getUser;
+}
 
 export const comparePassword=async (email:string, supplied_password:string):Promise< null| UnitUser> =>{
     
